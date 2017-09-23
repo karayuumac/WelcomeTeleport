@@ -1,6 +1,7 @@
 package com.github.karayuumac;
 
 import com.github.karayuumac.config.Config;
+import com.github.karayuumac.listeners.PlayerJoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -32,6 +33,9 @@ public class WelcomeTeleport extends JavaPlugin {
         if (!sql.connect()) {
             getLogger().info("データベース接続処理時にエラーが発生しました。");
         }
+
+        //リスナーの登録
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 
         Bukkit.getLogger().info("[WelcomeTeleport]初参加者テレポートプラグイン起動");
     }

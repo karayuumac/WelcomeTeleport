@@ -6,3 +6,16 @@ port: '3306'
 db: 'seichiassist'
 id: 'root'
 pw: ''
+
+
+##テレポート設定
+#テレポートさせるサーバ名(/server 〇〇の〇〇部分)
+teleportServer: 's7'
+
+#その後指定座標にテレポートさせるかどうか
+isAfterTeleport: true
+#上がtrueの際,テレポートさせる座標
+teleportX: '580'
+teleportY: '216'
+teleportZ: '813'
+

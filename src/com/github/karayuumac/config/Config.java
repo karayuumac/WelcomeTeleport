@@ -1,5 +1,6 @@
 package com.github.karayuumac.config;
 
+import com.github.karayuumac.Util;
 import com.github.karayuumac.WelcomeTeleport;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -71,4 +72,23 @@ public class Config {
         return config.getString("pw");
     }
 
+    public String getTeleportServer() {
+        return config.getString("teleportServer");
+    }
+
+    public boolean isAfterTeleported() {
+        return config.getBoolean("isAfterTeleport");
+    }
+
+    public int getTeleportX() {
+        return Util.toInt(config.getString("teleportX"));
+    }
+
+    public int getTeleportY() {
+        return Util.toInt(config.getString("teleportY"));
+    }
+
+    public int getTeleportZ() {
+        return Util.toInt(config.getString("teleportZ"));
+    }
 }

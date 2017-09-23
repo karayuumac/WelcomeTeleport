@@ -1,6 +1,7 @@
 package com.github.karayuumac;
 
 import com.github.karayuumac.WelcomeTeleport;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.sql.*;
@@ -149,12 +150,11 @@ public class Sql {
      * @return 存在: true お初:false
      */
     public boolean isPlayerDataExisted(final Player player) {
-        String playerName = Util.getName(player);
         final UUID uuid = player.getUniqueId();
         final String struuid = uuid.toString().toLowerCase();
         String command;
         final String tableName = WelcomeTeleport.PLAYERDATA_TABLENAME;
-        int count = -1;
+        int count = 0;
 
         command = "select count(*) as count from " + db + "." + tableName
                 + " where uuid = '" + struuid + "'";
@@ -172,7 +172,11 @@ public class Sql {
             e.printStackTrace();
             return true;
         }
-        return count != 0;
+
+        if (count == 0) {
+            return false;
+        }
+        return true;
     }
 
 }

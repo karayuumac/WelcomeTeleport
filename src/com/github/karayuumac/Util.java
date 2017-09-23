@@ -16,4 +16,11 @@ public class Util {
     public static String getName(Player player) {
         return player.getName().toLowerCase();
     }
+
+    /**
+     * String->int
+     */
+    public static int toInt(String s) {
+        return Integer.parseInt(s);
+    }
 }
